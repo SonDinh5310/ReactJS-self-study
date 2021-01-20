@@ -1,0 +1,8 @@
+npm init
+//* Create package.json file, lis dependencies
+npm install <package-name> --save
+//* Install package locally (default) and add to package.json
+npm install <package-name> --g
+//* Install package globally (access anywhere) SUDO
+npm install <package-name> --save-dev
+//* Use it only in developnnpmment
