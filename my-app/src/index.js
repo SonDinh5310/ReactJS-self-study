@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDom from "react-dom";
-
 /*stateless fucntional component always return JSX */
 
 //JSX rules
@@ -50,29 +49,8 @@ import ReactDom from "react-dom";
 //* CSS
 import "./index.css";
 //* Setup
-const books = [
-    {
-        id: 1,
-        img:
-            "https://images-na.ssl-images-amazon.com/images/I/41L5qgUW2fL._AC_SX184_.jpg",
-        author: "Barack Obama",
-        title: "A Promised Land",
-    },
-    {
-        id: 2,
-        img:
-            "https://images-na.ssl-images-amazon.com/images/I/81h2gWPTYJL._AC_UL320_SR210,320_.jpg",
-        author: "Michelle Obama",
-        title: "Becoming",
-    },
-    {
-        id: 3,
-        img:
-            "https://images-na.ssl-images-amazon.com/images/I/41lnZmRZDpL._SX329_BO1,204,203,200_.jpg",
-        author: "Mateo Askaripour",
-        title: "Black Buck",
-    },
-];
+import { books } from "./books";
+import Book from "./Book";
 
 function BookList() {
     return (
@@ -84,16 +62,5 @@ function BookList() {
     );
 }
 
-const Book = (props) => {
-    const { img, title, author } = props;
-
-    return (
-        <article className="book">
-            <img src={img} alt="" />
-            <h1>{title}</h1>
-            <h4>{author}</h4>
-        </article>
-    );
-};
 ReactDom.render(<BookList />, document.getElementById("root"));
 //1h39m
