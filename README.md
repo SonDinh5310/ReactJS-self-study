@@ -377,6 +377,7 @@ function App() {
 ### **State và useState**
 
 • useState cho phép chúng ta khai báo local state trong Function Component:
+
 ```js
 import React from "react";
 
@@ -388,7 +389,11 @@ function App() {
 
     return <div>I am learning {language}</div>;
 }
-Ghi chú: Bất kỳ hook trong phần này được lấy từ React packafe và có thể import riêng lẻ.
+```
+
+**Ghi chú**: Bất kỳ hook trong phần này được lấy từ React packafe và có thể import riêng lẻ.
+
+```js
 import React, { useState } from "react";
 
 function App() {
@@ -397,7 +402,9 @@ function App() {
     return <div>I am learning {language}</div>;
 }
 ```
+
 • useState cũng cho chúng ta chức năng ‘setter’ để update các state mà nó tạo
+
 ```js
 function App() {
     // the setter function is always the second destructured value
@@ -406,11 +413,11 @@ function App() {
 
     return (
         <div>
-   {/*  why use an arrow function here instead onClick={setterFn()} ? */}
+            {/*  why use an arrow function here instead onClick={setterFn()} ? */}
             <button onClick={() => setLanguage("javascript")}>
                 Change language to JS
             </button>
- {/*  if not, setLanguage would be called immediately and not on click */}
+            {/*  if not, setLanguage would be called immediately and not on click */}
             <p>I am now learning {language}</p>
         </div>
     );
