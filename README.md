@@ -1,6 +1,6 @@
-CORE CONCEPTS
+#**CORE CONCEPTS**
 
-Các element và JSX
+##**Các element và JSX**
 
 • Cú pháp căn bản cho một React element:
 
@@ -238,6 +238,7 @@ function Header() {
 ```
 
 • Fragment là các components được dùng để hiển thị các loại component mà không cần thêm element vào DOM.
+
 • Fragments phù hợp với conditional logic
 
 ```js
@@ -264,15 +265,16 @@ function Header() {
 }
 ```
 
-List và key
-Dùng .map() để chuyển mảng list of data vào list of elements:
+##**List và key**
+
+• Dùng .map() để chuyển mảng list of data vào list of elements:
 
 ```js
 const people = ["John", "Bob", "Fred"];
 const peopleList = people.map((person) => <p>{person}</p>);
 ```
 
-.map() cũng được dùng cho components như là elements:
+• .map() cũng được dùng cho components như là elements:
 
 ```js
 function App() {
@@ -292,7 +294,7 @@ function Person({ name }) {
 }
 ```
 
-Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map. Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
+> Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map. Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
 
 ```js
 function App() {
@@ -341,7 +343,7 @@ function handleToggleTheme() {
 </button>
 ```
 
-Hai thứ quan trọng nhất trong React events là onClick và onChange
+###Hai thứ quan trọng nhất trong React events là onClick và onChange
 
 • onClick xử lý click events trên JSX element (được gọi là buttons)
 
@@ -370,14 +372,14 @@ function App() {
 }
 ```
 
-React Hooks
+##**React Hooks**
 
-State và useState
+###**State và useState**
 
-useState cho phép chúng ta khai báo local state trong Function Component:
+• useState cho phép chúng ta khai báo local state trong Function Component:
+```js
 import React from "react";
 
-```js
 // create state variable
 // syntax: const [stateVariable] = React.useState(defaultValue);
 function App() {
@@ -394,7 +396,9 @@ function App() {
 
     return <div>I am learning {language}</div>;
 }
-useState cũng cho chúng ta chức năng ‘setter’ để update các state mà nó tạo
+```
+• useState cũng cho chúng ta chức năng ‘setter’ để update các state mà nó tạo
+```js
 function App() {
     // the setter function is always the second destructured value
     const [language, setLanguage] = React.useState("python");
@@ -416,7 +420,7 @@ function App() {
 // and the App component re-renders to display the new state
 ```
 
-useState có thể sử dụng một hoặc nhiều lần với single component:
+• useState có thể sử dụng một hoặc nhiều lần với single component:
 
 ```js
 function App() {
@@ -440,7 +444,7 @@ function App() {
 }
 ```
 
-useState chấp nhận các value primitive hay object để quản lý state:
+• useState chấp nhận các value primitive hay object để quản lý state:
 
 ```js
 // we have the option to organize state using whatever is the
@@ -483,7 +487,7 @@ function App() {
 }
 ```
 
-Nếu state mới phụ thuộc vào state trước đó, để đảm bảo update đã hoàn tất, chúng ta có thể dùng một function trong setter function đưa ra chính xác state trước đó.
+• Nếu state mới phụ thuộc vào state trước đó, để đảm bảo update đã hoàn tất, chúng ta có thể dùng một function trong setter function đưa ra chính xác state trước đó.
 
 ```js
 function App() {
@@ -510,15 +514,15 @@ function App() {
 }
 ```
 
-Side effects và useEffect
+##**Side effects và useEffect**
 
-useEffect cho phép thực hiện side effect bên trong các function component. Vậy các side effect là những gì?
+###useEffect cho phép thực hiện side effect bên trong các function component. Vậy các side effect là những gì?
 
 • Sử dụng side effects khi chúng ta cần “đụng” đến thế giới bên ngoài. Ví dụ như fetching data từ API hay làm việc với DOM.
 
 • Side effect là các hành động có thể thay đổi component state.
 
-useEffect chấp nhận callback function (hay còn được gọi là ‘effect’ function), được chạy mặc định mỗi lần re-render. Nó chạy một lần khi component mount, cũng là thời điểm phù hợp để thực hiện side effect trong một lifecycle của component.
+> useEffect chấp nhận callback function (hay còn được gọi là ‘effect’ function), được chạy mặc định mỗi lần re-render. Nó chạy một lần khi component mount, cũng là thời điểm phù hợp để thực hiện side effect trong một lifecycle của component.
 
 ```js
 // what does our code do? Picks a color from the colors array
@@ -543,7 +547,7 @@ function App() {
 }
 ```
 
-Để tránh thực hiện callback sau mỗi lần render, chúng ta có thể tạo arguement thứ 2 là một array (mảng) trống:
+• Để tránh thực hiện callback sau mỗi lần render, chúng ta có thể tạo arguement thứ 2 là một array (mảng) trống:
 
 ```js
 function App() {
@@ -565,7 +569,7 @@ function App() {
 }
 ```
 
-useEffect cho phép chúng ta thực hiện các effect với các mảng dependencies. Mảng dependencies là arguement thứ hai, nếu có một trong những giá trị trong mảng thay đổi, thì effect function sẽ chạy lại.
+• useEffect cho phép chúng ta thực hiện các effect với các mảng dependencies. Mảng dependencies là arguement thứ hai, nếu có một trong những giá trị trong mảng thay đổi, thì effect function sẽ chạy lại.
 
 ```js
 function App() {
@@ -589,7 +593,7 @@ function App() {
 }
 ```
 
-useEffect cho phép chúng ta unsubscribe những effect nhất định bằng cách trả lại function vào lúc cuối:
+• useEffect cho phép chúng ta unsubscribe những effect nhất định bằng cách trả lại function vào lúc cuối:
 
 ```js
 function MouseTracker() {
@@ -629,9 +633,9 @@ function MouseTracker() {
 // their own function, but I believe this is more readable
 ```
 
-Fetching data với useEffect
+##**Fetching data với useEffect**
 
-Nên chú ý khi xử lý các promise với các cú pháp async/await ngắn gọn yêu cầu phải tạo thêm function riêng biệt (Vì effect callback function không thể async.)
+• Nên chú ý khi xử lý các promise với các cú pháp async/await ngắn gọn yêu cầu phải tạo thêm function riêng biệt (Vì effect callback function không thể async.)
 
 ```js
 const endpoint = "https://api.github.com/users/codeartistryio";
@@ -666,13 +670,13 @@ function App() {
 }
 ```
 
-Performance và useCallback
+##**Performance và useCallback**
 
-useCallback là một hook được sử dụng để cải thiện performance của component.
+• useCallback là một hook được sử dụng để cải thiện performance của component.
 
-Nếu có một component thường xuyên re-render, useCallback sẽ ngăn chặn tình trạng callback functions trong component được tạo lại mỗi lần component re-render (đồng nghĩa với việc function component re-run).
+• Nếu có một component thường xuyên re-render, useCallback sẽ ngăn chặn tình trạng callback functions trong component được tạo lại mỗi lần component re-render (đồng nghĩa với việc function component re-run).
 
-useCallback re-run chỉ khi một trong những dependencies thay đổi.
+• useCallback re-run chỉ khi một trong những dependencies thay đổi.
 
 ```js
 // in Timer, we are calculating the date and putting it in state a lot
@@ -716,9 +720,9 @@ function Timer() {
 }
 ```
 
-Memorization và useMemo
+##**Memorization và useMemo**
 
-useMemo khá tương tự với useCallback và để cải thiện hiệu năng. Thay vì dùng để callback, nó được dùng để lưu lại kết quả của hàm nào và những giá trị nào sẽ làm thay đổi kết quả đó.
+• useMemo khá tương tự với useCallback và để cải thiện hiệu năng. Thay vì dùng để callback, nó được dùng để lưu lại kết quả của hàm nào và những giá trị nào sẽ làm thay đổi kết quả đó.
 
 ```js
 // useMemo is useful when we need a lot of computing resources
@@ -771,11 +775,11 @@ function App() {
 }
 ```
 
-Refs và useRef
+##**Refs và useRef**
 
-Ref là attribute đặc biệt và luôn có sẵn trên tất cả React components. Chúng cho phép chúng ta tạo ra reference đến element/component có sẵn khi mount component. useRef cho phép chúng ta sử dụng React Refs một cách dễ dàng. Chúng ta gọi useRef (ở top của component đó) và đính kèm giá trị trả về vào attribute ref của element đó để tham chiếu.
+• Ref là attribute đặc biệt và luôn có sẵn trên tất cả React components. Chúng cho phép chúng ta tạo ra reference đến element/component có sẵn khi mount component. useRef cho phép chúng ta sử dụng React Refs một cách dễ dàng. Chúng ta gọi useRef (ở top của component đó) và đính kèm giá trị trả về vào attribute ref của element đó để tham chiếu.
 
-Khi đã tạo reference, chúng ta sử dụng property hiện có để chỉnh sửa (modify-mutate) các properties của element đó. Hoặc chúng ta có thể call bất kỳ methods nào trên element đó (như .focus() để focus một input).
+• Khi đã tạo reference, chúng ta sử dụng property hiện có để chỉnh sửa (modify-mutate) các properties của element đó. Hoặc chúng ta có thể call bất kỳ methods nào trên element đó (như .focus() để focus một input).
 
 ```js
 function App() {
@@ -807,11 +811,11 @@ function App() {
 }
 ```
 
-Hooks nâng cao
+##**Hooks nâng cao**
 
-Context và useContext
+###**Context và useContext**
 
-Trong React, chúng ta nên tránh tạo ra các multiple props để chuyển data xuống 2 hay nhiều level từ một parent component:
+• Trong React, chúng ta nên tránh tạo ra các multiple props để chuyển data xuống 2 hay nhiều level từ một parent component:
 
 ```js
 // Context helps us avoid creating multiple duplicate props
@@ -837,7 +841,7 @@ const Main = ({ user }) => (
 const Header = ({ user }) => <header>Welcome, {user.name}!</header>;
 ```
 
-Context khá hữu ích dùng để chuyển props xuống các tầng levels của child
+• Context khá hữu ích dùng để chuyển props xuống các tầng levels của child
 
 ```js
 // Here is the previous example rewritten with Context
@@ -875,7 +879,7 @@ const Header = () => (
 );
 ```
 
-useContect hook có thể xóa render props pattern này, tuy nhiên, để có thể consume context trong bất kỳ function component nào:
+• useContect hook có thể xóa render props pattern này, tuy nhiên, để có thể consume context trong bất kỳ function component nào:
 
 ```js
 const Header = () => {
@@ -886,9 +890,9 @@ const Header = () => {
 };
 ```
 
-Reducers và useReducer
+##**Reducers và useReducer**
 
-Reducer là function khá đơn giản, được dùng để lấy state object trước đó và một action object và trả về một state object mới. Ví dụ:
+• Reducer là function khá đơn giản, được dùng để lấy state object trước đó và một action object và trả về một state object mới. Ví dụ:
 
 ```js
 // let's say this reducer manages user state in our app:
@@ -909,9 +913,9 @@ function reducer(state, action) {
 }
 ```
 
-React useReducer hook là một cách hữu ích để quản lý state trong React bên cạnh useState, và nó có thể kết hợp với context dùng để quản lý state trong một ứng dụng mà có thể không cần sử dụng đến redux
+• React useReducer hook là một cách hữu ích để quản lý state trong React bên cạnh useState, và nó có thể kết hợp với context dùng để quản lý state trong một ứng dụng mà có thể không cần sử dụng đến redux
 
-Ngoài ra, sự kết hợp useReducer và useContext có thể là hệ thống quản lý state cho apps.
+• Ngoài ra, sự kết hợp useReducer và useContext có thể là hệ thống quản lý state cho apps.
 
 ```js
 const initialState = { username: "", isAuth: false };
@@ -953,9 +957,9 @@ function App() {
 }
 ```
 
-Các hooks custom
+##**Các hooks custom**
 
-Các hooks được tạo ra nhằm tái sử dụng behavior dễ dàng giữa các component. Chúng là pattern dễ hiểu hơn các loại khác của class components, như higher-order component hay render props. Chúng ta có thể tự tạo ra hook của riêng mình tùy thuộc vào nhu cầu từng dự án, bên cạnh những gì React đã có sẵn:
+• Các hooks được tạo ra nhằm tái sử dụng behavior dễ dàng giữa các component. Chúng là pattern dễ hiểu hơn các loại khác của class components, như higher-order component hay render props. Chúng ta có thể tự tạo ra hook của riêng mình tùy thuộc vào nhu cầu từng dự án, bên cạnh những gì React đã có sẵn:
 
 ```js
 // here's a custom hook that is used to fetch data from an API
@@ -987,7 +991,7 @@ function App() {
 }
 ```
 
-Các quy tắc của hooks:
+###**Các quy tắc của hooks:**
 
 Khi sử dụng React hooks thì có 2 nguyên tắc không nên vi phạm:
 
