@@ -1,6 +1,7 @@
 CORE CONCEPTS
 
 Các element và JSX
+
 • Cú pháp căn bản cho một React element:
 
 ```js
@@ -265,8 +266,12 @@ function Header() {
 
 List và key
 Dùng .map() để chuyển mảng list of data vào list of elements:
+
+```js
 const people = ["John", "Bob", "Fred"];
 const peopleList = people.map((person) => <p>{person}</p>);
+```
+
 .map() cũng được dùng cho components như là elements:
 
 ```js
