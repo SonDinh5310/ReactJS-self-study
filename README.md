@@ -292,8 +292,7 @@ function Person({ name }) {
 }
 ```
 
-Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map.
-Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
+Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map. Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
 
 ```js
 function App() {
@@ -343,7 +342,9 @@ function handleToggleTheme() {
 ```
 
 Hai thứ quan trọng nhất trong React events là onClick và onChange
+
 • onClick xử lý click events trên JSX element (được gọi là buttons)
+
 • onChange thì xử lý keyboard events (được gọi là inputs)
 
 ```js
@@ -370,7 +371,9 @@ function App() {
 ```
 
 React Hooks
+
 State và useState
+
 useState cho phép chúng ta khai báo local state trong Function Component:
 import React from "react";
 
@@ -480,8 +483,7 @@ function App() {
 }
 ```
 
-Nếu state mới phụ thuộc vào state trước đó, để đảm bảo update đã hoàn tất, chúng ta có thể dùng
-một function trong setter function đưa ra chính xác state trước đó.
+Nếu state mới phụ thuộc vào state trước đó, để đảm bảo update đã hoàn tất, chúng ta có thể dùng một function trong setter function đưa ra chính xác state trước đó.
 
 ```js
 function App() {
@@ -509,9 +511,13 @@ function App() {
 ```
 
 Side effects và useEffect
+
 useEffect cho phép thực hiện side effect bên trong các function component. Vậy các side effect là những gì?
+
 • Sử dụng side effects khi chúng ta cần “đụng” đến thế giới bên ngoài. Ví dụ như fetching data từ API hay làm việc với DOM.
+
 • Side effect là các hành động có thể thay đổi component state.
+
 useEffect chấp nhận callback function (hay còn được gọi là ‘effect’ function), được chạy mặc định mỗi lần re-render. Nó chạy một lần khi component mount, cũng là thời điểm phù hợp để thực hiện side effect trong một lifecycle của component.
 
 ```js
@@ -559,8 +565,7 @@ function App() {
 }
 ```
 
-useEffect cho phép chúng ta thực hiện các effect với các mảng dependencies.
-Mảng dependencies là arguement thứ hai, nếu có một trong những giá trị trong mảng thay đổi, thì effect function sẽ chạy lại.
+useEffect cho phép chúng ta thực hiện các effect với các mảng dependencies. Mảng dependencies là arguement thứ hai, nếu có một trong những giá trị trong mảng thay đổi, thì effect function sẽ chạy lại.
 
 ```js
 function App() {
@@ -625,6 +630,7 @@ function MouseTracker() {
 ```
 
 Fetching data với useEffect
+
 Nên chú ý khi xử lý các promise với các cú pháp async/await ngắn gọn yêu cầu phải tạo thêm function riêng biệt (Vì effect callback function không thể async.)
 
 ```js
@@ -661,8 +667,11 @@ function App() {
 ```
 
 Performance và useCallback
+
 useCallback là một hook được sử dụng để cải thiện performance của component.
+
 Nếu có một component thường xuyên re-render, useCallback sẽ ngăn chặn tình trạng callback functions trong component được tạo lại mỗi lần component re-render (đồng nghĩa với việc function component re-run).
+
 useCallback re-run chỉ khi một trong những dependencies thay đổi.
 
 ```js
@@ -708,11 +717,13 @@ function Timer() {
 ```
 
 Memorization và useMemo
+
 useMemo khá tương tự với useCallback và để cải thiện hiệu năng. Thay vì dùng để callback, nó được dùng để lưu lại kết quả của hàm nào và những giá trị nào sẽ làm thay đổi kết quả đó.
+
+```js
 // useMemo is useful when we need a lot of computing resources
 // to perform an operation, but don't want to repeat it on each re-render
 
-```js
 function App() {
     // state to select a word in 'words' array below
     const [wordIndex, setWordIndex] = useState(0);
@@ -761,8 +772,9 @@ function App() {
 ```
 
 Refs và useRef
-Ref là attribute đặc biệt và luôn có sẵn trên tất cả React components. Chúng cho phép chúng ta tạo ra reference đến element/component có sẵn khi mount component.
-useRef cho phép chúng ta sử dụng React Refs một cách dễ dàng. Chúng ta gọi useRef (ở top của component đó) và đính kèm giá trị trả về vào attribute ref của element đó để tham chiếu.
+
+Ref là attribute đặc biệt và luôn có sẵn trên tất cả React components. Chúng cho phép chúng ta tạo ra reference đến element/component có sẵn khi mount component. useRef cho phép chúng ta sử dụng React Refs một cách dễ dàng. Chúng ta gọi useRef (ở top của component đó) và đính kèm giá trị trả về vào attribute ref của element đó để tham chiếu.
+
 Khi đã tạo reference, chúng ta sử dụng property hiện có để chỉnh sửa (modify-mutate) các properties của element đó. Hoặc chúng ta có thể call bất kỳ methods nào trên element đó (như .focus() để focus một input).
 
 ```js
@@ -796,7 +808,9 @@ function App() {
 ```
 
 Hooks nâng cao
+
 Context và useContext
+
 Trong React, chúng ta nên tránh tạo ra các multiple props để chuyển data xuống 2 hay nhiều level từ một parent component:
 
 ```js
@@ -873,6 +887,7 @@ const Header = () => {
 ```
 
 Reducers và useReducer
+
 Reducer là function khá đơn giản, được dùng để lấy state object trước đó và một action object và trả về một state object mới. Ví dụ:
 
 ```js
@@ -895,6 +910,7 @@ function reducer(state, action) {
 ```
 
 React useReducer hook là một cách hữu ích để quản lý state trong React bên cạnh useState, và nó có thể kết hợp với context dùng để quản lý state trong một ứng dụng mà có thể không cần sử dụng đến redux
+
 Ngoài ra, sự kết hợp useReducer và useContext có thể là hệ thống quản lý state cho apps.
 
 ```js
@@ -938,6 +954,7 @@ function App() {
 ```
 
 Các hooks custom
+
 Các hooks được tạo ra nhằm tái sử dụng behavior dễ dàng giữa các component. Chúng là pattern dễ hiểu hơn các loại khác của class components, như higher-order component hay render props. Chúng ta có thể tự tạo ra hook của riêng mình tùy thuộc vào nhu cầu từng dự án, bên cạnh những gì React đã có sẵn:
 
 ```js
@@ -971,9 +988,11 @@ function App() {
 ```
 
 Các quy tắc của hooks:
+
 Khi sử dụng React hooks thì có 2 nguyên tắc không nên vi phạm:
 
 1. Hooks chỉ có thể đuợc call trên top của components (chúng không thể ở trong conditionals, loops hay nested functions).
+
 2. Hooks chỉ có thể sử dụng trong function components (chúng không thể dùng trong Javascript function bình thuờng hay class components).
 
 ```js
