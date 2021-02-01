@@ -1,6 +1,6 @@
-#**CORE CONCEPTS**
+# **CORE CONCEPTS**
 
-##**Các element và JSX**
+## **Các element và JSX**
 
 • Cú pháp căn bản cho một React element:
 
@@ -265,7 +265,7 @@ function Header() {
 }
 ```
 
-##**List và key**
+## **List và key**
 
 • Dùng .map() để chuyển mảng list of data vào list of elements:
 
@@ -294,7 +294,7 @@ function Person({ name }) {
 }
 ```
 
-> Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map. Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
+• Mỗi React element được lặp lại cần một ‘key’ props. Keys là nhân tố cần thiết để React theo dõi từng element được lặp lại với map. Nếu không có Keys thì sẽ khó để update các element khi data thay đổi. Và Keys phải là các giá trị duy nhất để thể hiện rằng các elements này tách biệt với nhau.
 
 ```js
 function App() {
@@ -343,7 +343,7 @@ function handleToggleTheme() {
 </button>
 ```
 
-###Hai thứ quan trọng nhất trong React events là onClick và onChange
+### Hai thứ quan trọng nhất trong React events là onClick và onChange
 
 • onClick xử lý click events trên JSX element (được gọi là buttons)
 
@@ -372,9 +372,9 @@ function App() {
 }
 ```
 
-##**React Hooks**
+## **React Hooks**
 
-###**State và useState**
+### **State và useState**
 
 • useState cho phép chúng ta khai báo local state trong Function Component:
 ```js
@@ -514,15 +514,15 @@ function App() {
 }
 ```
 
-##**Side effects và useEffect**
+## **Side effects và useEffect**
 
-###useEffect cho phép thực hiện side effect bên trong các function component. Vậy các side effect là những gì?
+### useEffect cho phép thực hiện side effect bên trong các function component. Vậy các side effect là những gì?
 
 • Sử dụng side effects khi chúng ta cần “đụng” đến thế giới bên ngoài. Ví dụ như fetching data từ API hay làm việc với DOM.
 
 • Side effect là các hành động có thể thay đổi component state.
 
-> useEffect chấp nhận callback function (hay còn được gọi là ‘effect’ function), được chạy mặc định mỗi lần re-render. Nó chạy một lần khi component mount, cũng là thời điểm phù hợp để thực hiện side effect trong một lifecycle của component.
+useEffect chấp nhận callback function (hay còn được gọi là ‘effect’ function), được chạy mặc định mỗi lần re-render. Nó chạy một lần khi component mount, cũng là thời điểm phù hợp để thực hiện side effect trong một lifecycle của component.
 
 ```js
 // what does our code do? Picks a color from the colors array
@@ -633,7 +633,7 @@ function MouseTracker() {
 // their own function, but I believe this is more readable
 ```
 
-##**Fetching data với useEffect**
+## **Fetching data với useEffect**
 
 • Nên chú ý khi xử lý các promise với các cú pháp async/await ngắn gọn yêu cầu phải tạo thêm function riêng biệt (Vì effect callback function không thể async.)
 
@@ -670,7 +670,7 @@ function App() {
 }
 ```
 
-##**Performance và useCallback**
+## **Performance và useCallback**
 
 • useCallback là một hook được sử dụng để cải thiện performance của component.
 
@@ -720,7 +720,7 @@ function Timer() {
 }
 ```
 
-##**Memorization và useMemo**
+## **Memorization và useMemo**
 
 • useMemo khá tương tự với useCallback và để cải thiện hiệu năng. Thay vì dùng để callback, nó được dùng để lưu lại kết quả của hàm nào và những giá trị nào sẽ làm thay đổi kết quả đó.
 
@@ -775,7 +775,7 @@ function App() {
 }
 ```
 
-##**Refs và useRef**
+## **Refs và useRef**
 
 • Ref là attribute đặc biệt và luôn có sẵn trên tất cả React components. Chúng cho phép chúng ta tạo ra reference đến element/component có sẵn khi mount component. useRef cho phép chúng ta sử dụng React Refs một cách dễ dàng. Chúng ta gọi useRef (ở top của component đó) và đính kèm giá trị trả về vào attribute ref của element đó để tham chiếu.
 
@@ -811,9 +811,9 @@ function App() {
 }
 ```
 
-##**Hooks nâng cao**
+## **Hooks nâng cao**
 
-###**Context và useContext**
+### **Context và useContext**
 
 • Trong React, chúng ta nên tránh tạo ra các multiple props để chuyển data xuống 2 hay nhiều level từ một parent component:
 
@@ -890,7 +890,7 @@ const Header = () => {
 };
 ```
 
-##**Reducers và useReducer**
+## **Reducers và useReducer**
 
 • Reducer là function khá đơn giản, được dùng để lấy state object trước đó và một action object và trả về một state object mới. Ví dụ:
 
@@ -957,7 +957,7 @@ function App() {
 }
 ```
 
-##**Các hooks custom**
+## **Các hooks custom**
 
 • Các hooks được tạo ra nhằm tái sử dụng behavior dễ dàng giữa các component. Chúng là pattern dễ hiểu hơn các loại khác của class components, như higher-order component hay render props. Chúng ta có thể tự tạo ra hook của riêng mình tùy thuộc vào nhu cầu từng dự án, bên cạnh những gì React đã có sẵn:
 
@@ -991,7 +991,7 @@ function App() {
 }
 ```
 
-###**Các quy tắc của hooks:**
+### **Các quy tắc của hooks:**
 
 Khi sử dụng React hooks thì có 2 nguyên tắc không nên vi phạm:
 
