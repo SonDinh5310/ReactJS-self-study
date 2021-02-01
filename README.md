@@ -1,4 +1,5 @@
 CORE CONCEPTS
+
 Các element và JSX
 • Cú pháp căn bản cho một React element:
 
