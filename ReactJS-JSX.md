@@ -1,4 +1,4 @@
-# ** 📝 TỔNG QUAN VỀ JSX**
+# **📝 TỔNG QUAN VỀ JSX**
 
 ## **1. JSX là gì?**
 
