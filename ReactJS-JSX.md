@@ -198,3 +198,5 @@ const element = (
     </div>
 );
 ```
+
+FROM https://viblo.asia/p/tong-quan-ve-jsx-Qbq5QqBL5D8
