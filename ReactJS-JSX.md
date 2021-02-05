@@ -18,8 +18,8 @@ const element = <h1>Hello, world!</h1>;
 
 Cú pháp của tài liệu XML XML được xây dựng dựa vào cấu trúc NODE lồng nhau, mỗi node sẽ có một thẻ mở và một thẻ đóng như sau:
 
-```
-  <nodename>nội dung</nodename>
+```jsx
+<nodename>nội dung</nodename>
 ```
 
 Trong đó:
