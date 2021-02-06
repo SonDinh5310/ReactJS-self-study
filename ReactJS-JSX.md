@@ -24,7 +24,7 @@ Cú pháp của tài liệu XML XML được xây dựng dựa vào cấu trúc 
 
 Trong đó:
 
-```jsx
+```
 • <nodename> là thẻ mở, tên của thẻ này do bạn tự định nghĩa.
 • </nodename> là thẻ đóng, tên của thẻ này phải trùng với tên của thẻ mở.
 • content là nội dung của thẻ này
